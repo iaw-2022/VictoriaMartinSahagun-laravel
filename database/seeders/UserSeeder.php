@@ -15,15 +15,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $password = $hashed = Hash::make('recuperacion', [
-            'rounds' =>12
-        ]);    
-
-        $data = [
-            'name' => 'Victoria',
-            'email' => 'recuperacontrasena14@gmail.com',
-            'password' => $password
-        ];
-        DB::table('users')->insert($data);
+        DB::table('users')->insert([
+            'name'=>'admin',
+            'email'=>'admin@admin.com',
+            'email_verified_at' => now(),
+            'password'=>bcrypt('admin'),
+            'rol'=>'admin'
+        ]);
     }
 }
