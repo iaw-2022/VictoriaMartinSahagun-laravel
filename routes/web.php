@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', 'App\Http\Controllers\welcomeController@index');
 
 Route::get('/dashboard', function () {
