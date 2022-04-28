@@ -15,7 +15,15 @@
       </div>
       <div class="form-group">
         <label for="dia" class="form-label mt-4">Dia</label>
-        <input type="text" name="dia" class="form-control" id="dia" value="{{$actividad->dia}}">
+        <select name="dias" class="form-select" tabindex="3">
+            <option value="lunes">Lunes</option>
+            <option value="martes">Martes</option>
+            <option value="miercoles">Miercoles</option>
+            <option value="jueves">Jueves</option>
+            <option value="viernes">Viernes</option>
+            <option value="sabado">Sabado</option>
+            <option value="domingo">Domingo</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="horario" class="form-label mt-4">Horario</label>
