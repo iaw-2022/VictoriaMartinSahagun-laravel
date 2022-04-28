@@ -43,7 +43,8 @@ class ComidaController extends Controller
     */
     public function show($id)
     {
-        //
+        $comida = Comida::find($id);
+        return view('comida.show')->with('comida',$comida);
     }
     
     /**

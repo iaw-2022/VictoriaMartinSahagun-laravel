@@ -18,8 +18,8 @@
         <td>{{$actividades[$reserva->actividad_id]}}</td>
         <td>{{$reserva->cantidad_personas}}</td>
         <td>
-          <a class="btn btn-info" href="/reservas/actividades/{{$reserva->id}}/edit">Editar</a>
-          <a class="btn btn-danger">Eliminar</a>
+          <a class="btn btn-info btn-sm" href="/reservas/actividades/{{$reserva->id}}/edit">Editar</a>
+          <a class="btn btn-danger btn-sm">Eliminar</a>
         </td>
       </tr>
       @endforeach

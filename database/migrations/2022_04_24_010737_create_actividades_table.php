@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('descripcion');
             $table->time('horario', 4);
             $table->string('localizacion');
+            $table->string('img');
             $table->timestamps();
         });
     }

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->longText('descripcion');
             $table->string('dia');
-            $table->string('comida');
+            $table->string('tipo');
+            $table->string('img');
             $table->timestamps();
         });
     }

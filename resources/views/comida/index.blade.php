@@ -6,9 +6,8 @@
     <thead>
       <tr>
         <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
         <th scope="col">Día</th>
-        <th scope="col">Comida</th>
+        <th scope="col">Tipo</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
@@ -16,12 +15,12 @@
         @foreach ($comidas as $comida)
           <tr>
               <td>{{$comida->nombre}}</td>
-              <td>{{$comida->descripcion}}</td>
               <td>{{$comida->dia}}</td>
-              <td>{{$comida->comida}}</td>
+              <td>{{$comida->tipo}}</td>
               <td>
-                  <a class="btn btn-info" href="/comidas/{{$comida->id}}/edit">Editar</a>
-                  <a class="btn btn-danger">Eliminar</a>
+                  <a class="btn btn-primary btn-sm" href="/comidas/{{$comida->id}}">Mas informacion</a> 
+                  <a class="btn btn-info btn-sm" href="/comidas/{{$comida->id}}/edit">Editar</a>
+                  <a class="btn btn-danger btn-sm">Eliminar</a>
               </td>
           </tr>
       @endforeach

@@ -6,10 +6,8 @@
     <thead>
       <tr>
         <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
         <th scope="col">Día</th>
         <th scope="col">Horario</th>
-        <th scope="col">Localizacion</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
@@ -17,13 +15,12 @@
         @foreach ($actividades as $actividad)
           <tr>
               <td>{{$actividad->nombre}}</td>
-              <td>{{$actividad->descripcion}}</td>
               <td>{{$actividad->dia}}</td>
               <td>{{$actividad->horario}}</td>
-              <td>{{$actividad->localizacion}}</td>
               <td>
-                  <a class="btn btn-info" href="/actividades/{{$actividad->id}}/edit">Editar</a>
-                  <a class="btn btn-danger">Eliminar</a>
+                  <a class="btn btn-primary btn-sm" href="/actividades/{{$actividad->id}}">Mas informacion</a>
+                  <a class="btn btn-info btn-sm" href="/actividades/{{$actividad->id}}/edit">Editar</a>
+                  <a class="btn btn-danger btn-sm">Eliminar</a>
               </td>
           </tr>
       @endforeach

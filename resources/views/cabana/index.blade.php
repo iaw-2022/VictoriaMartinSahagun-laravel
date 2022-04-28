@@ -16,8 +16,8 @@
               <td>{{$cabana->numero}}</td>
               <td>{{$cabana->capacidad}}</td>
               <td>
-                  <a class="btn btn-info" href="/cabanas/{{$cabana->id}}/edit">Editar</a>
-                  <a class="btn btn-danger">Eliminar</a>
+                  <a class="btn btn-info btn-sm" href="/cabanas/{{$cabana->id}}/edit">Editar</a>
+                  <a class="btn btn-danger btn-sm">Eliminar</a>
               </td>
           </tr>
       @endforeach

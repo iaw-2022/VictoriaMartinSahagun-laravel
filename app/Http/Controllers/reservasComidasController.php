@@ -22,7 +22,9 @@ class reservasComidasController extends Controller
     }
 
     public function create(){
-        return view('reservas_comidas.create');
+        $cabanas = Cabana::all();
+        $comidas = Comida::all();
+        return view('reservas_comidas.create')->with('cabanas',$cabanas)->with('comidas',$comidas);
     }
 
     public function store(Request $request){
@@ -30,10 +32,13 @@ class reservasComidasController extends Controller
     }
 
     public function edit($id){
+        $cabanas = Cabana::all();
+        $comidas = Comida::all();
         $reserva = ReservasComidas::find($id);
         $cabana = Cabana::find($reserva->cabana_id);
         $comida = Comida::find($reserva->comida_id); 
-        return view('reservas_comidas.edit')->with('reserva',$reserva)->with('cabana',$cabana)->with('comida',$comida);
+        return view('reservas_comidas.edit')->with('reserva',$reserva)->with('cabana',$cabana)->with('comida',$comida)
+        ->with('cabanas',$cabanas)->with('comidas',$comidas);
     }
 
 /**

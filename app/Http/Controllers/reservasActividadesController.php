@@ -22,7 +22,9 @@ class reservasActividadesController extends Controller
     }
 
     public function create(){
-        return view('reservas_actividades.create');
+        $cabanas = Cabana::all();
+        $actividades = Actividad::all();
+        return view('reservas_actividades.create')->with('cabanas',$cabanas)->with('actividades',$actividades);
     }
 
     public function store(Request $request){
@@ -30,10 +32,13 @@ class reservasActividadesController extends Controller
     }
 
     public function edit($id){
+        $cabanas = Cabana::all();
+        $actividades = Actividad::all();
         $reserva = ReservasActividades::find($id);
         $cabana = Cabana::find($reserva->cabana_id);
         $actividad = Actividad::find($reserva->actividad_id); 
-        return view('reservas_actividades.edit')->with('reserva',$reserva)->with('cabana',$cabana)->with('actividad',$actividad);
+        return view('reservas_actividades.edit')->with('reserva',$reserva)->with('cabana',$cabana)->with('actividad',$actividad)
+        ->with('cabanas',$cabanas)->with('actividades',$actividades);
     }
 
 /**

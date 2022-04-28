@@ -1,7 +1,7 @@
 @extends('layouts.plantillaBase')
 
 @section('contenido')
-<div class="container-md mt-5">
+<div class="container-md">
   <form action="/actividades" method="POST">
       @csrf
       <div class="form-group">
@@ -14,7 +14,15 @@
       </div>
       <div class="form-group">
         <label for="dia" class="form-label mt-4">Dia</label>
-        <input type="text" name="dia" class="form-control" id="dia" tabindex="3">
+        <select name="dias" class="form-select" tabindex="3">
+            <option value="lunes">Lunes</option>
+            <option value="martes">Martes</option>
+            <option value="miercoles">Miercoles</option>
+            <option value="jueves">Jueves</option>
+            <option value="viernes">Viernes</option>
+            <option value="sabado">Sabado</option>
+            <option value="domingo">Domingo</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="horario" class="form-label mt-4">Horario</label>
