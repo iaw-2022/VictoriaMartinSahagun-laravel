@@ -17,27 +17,24 @@ class ActividadSeeder extends Seeder
     {
         $data = [
             [
-                'dia'=>'viernes',
                 'nombre'=>'yoga',
                 'descripcion' => 'El yoga es una práctica que conecta el cuerpo, la respiración y la mente. Esta práctica utiliza posturas físicas, ejercicios de respiración y meditación para mejorar la salud general.',
+                'dia'=>'viernes',
                 'horario'=>'12:30',
-                'precio'=>0,
                 'localizacion'=>'patio'
             ],
             [
-                'dia'=>'sabado',
                 'nombre'=>'cata de vinos',
                 'descripcion' => 'Vas a aprender la diferencia entre catar y degustar distintos tipos de vinos y además te explicaremos todos los sentidos que intervienen en la memoria sensorial.',
+                'dia'=>'sabado',
                 'horario'=>'19:30',
-                'precio'=>0,
                 'localizacion'=>'restaurant'
             ],
             [
-                'dia'=>'domingo',
                 'nombre'=>'aqua gym',
                 'descripcion' => 'El aquagym es una actividad que aprovecha el entorno acuático para ejercitar los músculos, así como aumentar la resistencia y la fuerza del cuerpo, al ritmo de la música.',
+                'dia'=>'domingo',
                 'horario'=>'16:00',
-                'precio'=>0,
                 'localizacion'=>'pileta exterior'
             ]
         ];

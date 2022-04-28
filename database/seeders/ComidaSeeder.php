@@ -19,20 +19,20 @@ class ComidaSeeder extends Seeder
             [ 
                 'nombre'=>'Hamburguesa balcon',
                 'descripcion'=>'Doble medallon de carne vacuna, panceta, cheddar y pan de papa. Acompañado de papas rústicas.',
-                'precio'=>900,
-                'comida(Alm/Cen)'=>'Cena'
+                'dia'=>'Lunes',
+                'comida'=>'Cena'
             ],
             [ 
                 'nombre'=>'Sorrentinos de la casa',
                 'descripcion'=>'Sorrentinos de zapallo calabaza acompañados de una salsa de roquefort y nueces.',
-                'precio'=>1000,
-                'comida(Alm/Cen)'=>'Cena'
+                'dia'=>'Sabado',
+                'comida'=>'Cena'
             ],
             [ 
                 'nombre'=>'Asado',
                 'descripcion'=>'Porcion de carne a elección (vacío, entreña, costilla) acompañado de una ensalada con vegetales de la huerta.',
-                'precio'=>1000,
-                'comida(Alm/Cen)'=>'Almuerzo'
+                'dia'=>'Domingo',
+                'comida'=>'Almuerzo'
             ]
         ]
         ;
