@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('reservas_actividades', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad_personas');
             
             $table->unsignedBigInteger('actividad_id');
             $table->foreign('actividad_id')
@@ -27,6 +26,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('cabanas')->onDelete('cascade');         
             
+            $table->integer('cantidad_personas');
             $table->timestamps();
         });
     }

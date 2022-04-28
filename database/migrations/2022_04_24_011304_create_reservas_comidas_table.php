@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('reservas_comidas', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad_personas');
             
             $table->unsignedBigInteger('comida_id');
             $table->foreign('comida_id')
@@ -27,6 +26,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('cabanas')->onDelete('cascade');         
             
+            $table->integer('cantidad_personas');
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->longText('descripcion');
-            $table->integer('precio');
-            $table->string('comida(Alm/Cen)');
+            $table->string('dia');
+            $table->string('comida');
             $table->timestamps();
         });
     }
