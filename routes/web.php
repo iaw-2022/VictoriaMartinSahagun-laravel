@@ -16,8 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\welcomeController@index');
 
+Route::resource('/actividades', 'App\Http\Controllers\actividadController');
+
+Route::resource('/comidas', 'App\Http\Controllers\comidaController');
+
+Route::resource('/cabanas', 'App\Http\Controllers\cabanaController');
+
+Route::resource('/reservas/comidas', 'App\Http\Controllers\reservasComidasController');
+
+Route::resource('/reservas/actividades', 'App\Http\Controllers\reservasActividadesController');
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('home');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
