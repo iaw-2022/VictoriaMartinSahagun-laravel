@@ -28,4 +28,44 @@ class reservasComidasController extends Controller
     public function store(Request $request){
         return redirect('/reservas/comidas');
     }
+
+    public function edit($id){
+        $reserva = ReservasComidas::find($id);
+        $cabana = Cabana::find($reserva->cabana_id);
+        $comida = Comida::find($reserva->comida_id); 
+        return view('reservas_comidas.edit')->with('reserva',$reserva)->with('cabana',$cabana)->with('comida',$comida);
+    }
+
+/**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function show($id)
+    {
+        //
+    }
+    
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function update($id)
+    {
+        return redirect('/reservas/comidas');
+    }
+    
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function destroy($id)
+    {
+        //
+    }
 }

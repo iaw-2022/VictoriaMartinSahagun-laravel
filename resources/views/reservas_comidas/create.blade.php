@@ -17,7 +17,7 @@
             <input type="number" name="cantidad_personas" class="form-control" id="cantidad_personas" tabindex="3">
         </div>
         <div class="mt-4">
-            <button type="sumbit" class="btn btn-outline-primary" tabindex="5">Guardar</button>
+            <button type="submit" class="btn btn-outline-primary" tabindex="5">Guardar</button>
             <a class="btn btn-outline-danger" href="/reservas/comidas" tabindex="6">Cancelar</a>
         </div>
     </form>

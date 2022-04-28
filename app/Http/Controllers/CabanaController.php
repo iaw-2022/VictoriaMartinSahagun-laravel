@@ -27,4 +27,42 @@ class CabanaController extends Controller
         */
         return redirect('/cabanas');
     }
+
+    public function edit($id){
+        $cabana = Cabana::find($id);
+        return view('cabana.edit')->with('cabana',$cabana);
+    }
+    
+    /**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function show($id)
+    {
+        //
+    }
+    
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function update($id)
+    {
+        return redirect('/cabanas');
+    }
+    
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function destroy($id)
+    {
+        //
+    }
 }

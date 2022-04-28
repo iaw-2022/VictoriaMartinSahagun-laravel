@@ -19,7 +19,7 @@
         <label for="localizacion" class="form-label mt-4">Localizacion</label>
         <input type="text" name="localizacion" class="form-control" id="localizacion" tabindex="5">
         <div class="mt-4">
-            <button type="sumbit" class="btn btn-outline-primary" tabindex="5">Guardar</button>
+            <button type="submit" class="btn btn-outline-primary" tabindex="5">Guardar</button>
             <a class="btn btn-outline-danger" href="/reservas/actividades" tabindex="6">Cancelar</a>
         </div>
     </form>

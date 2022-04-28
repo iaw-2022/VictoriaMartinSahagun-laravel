@@ -16,7 +16,7 @@
               <td>{{$cabana->numero}}</td>
               <td>{{$cabana->capacidad}}</td>
               <td>
-                  <a class="btn btn-info">Editar</a>
+                  <a class="btn btn-info" href="/cabanas/{{$cabana->id}}/edit">Editar</a>
                   <a class="btn btn-danger">Eliminar</a>
               </td>
           </tr>

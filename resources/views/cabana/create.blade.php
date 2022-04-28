@@ -14,7 +14,7 @@
     </div>
     
     <div class="mt-4">
-      <button type="sumbit" class="btn btn-outline-primary" tabindex="3">Guardar</button>
+      <button type="submit" class="btn btn-outline-primary" tabindex="3">Guardar</button>
       <a class="btn btn-outline-danger" href="/cabanas" tabindex="4">Cancelar</a>
     </div>
 </form>

@@ -20,7 +20,7 @@
               <td>{{$comida->dia}}</td>
               <td>{{$comida->comida}}</td>
               <td>
-                  <a class="btn btn-info">Editar</a>
+                  <a class="btn btn-info" href="/comidas/{{$comida->id}}/edit">Editar</a>
                   <a class="btn btn-danger">Eliminar</a>
               </td>
           </tr>

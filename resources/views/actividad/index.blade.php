@@ -22,7 +22,7 @@
               <td>{{$actividad->horario}}</td>
               <td>{{$actividad->localizacion}}</td>
               <td>
-                  <a class="btn btn-info">Editar</a>
+                  <a class="btn btn-info" href="/actividades/{{$actividad->id}}/edit">Editar</a>
                   <a class="btn btn-danger">Eliminar</a>
               </td>
           </tr>

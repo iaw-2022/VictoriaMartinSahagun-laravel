@@ -18,7 +18,7 @@
         <td>{{$actividades[$reserva->actividad_id]}}</td>
         <td>{{$reserva->cantidad_personas}}</td>
         <td>
-          <a class="btn btn-info">Editar</a>
+          <a class="btn btn-info" href="/reservas/actividades/{{$reserva->id}}/edit">Editar</a>
           <a class="btn btn-danger">Eliminar</a>
         </td>
       </tr>

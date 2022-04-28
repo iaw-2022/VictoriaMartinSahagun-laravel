@@ -18,7 +18,7 @@
         <td>{{$comidas[$reserva->comida_id]}}</td>
         <td>{{$reserva->cantidad_personas}}</td>
         <td>
-          <a class="btn btn-info">Editar</a>
+          <a class="btn btn-info" href="/reservas/comidas/{{$reserva->id}}/edit">Editar</a>
           <a class="btn btn-danger">Eliminar</a>
         </td>
       </tr>

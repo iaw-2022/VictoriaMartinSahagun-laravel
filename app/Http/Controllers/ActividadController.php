@@ -32,4 +32,40 @@ class ActividadController extends Controller
         return redirect('/actividades');
     }
 
+    public function edit($id){
+        $actividad = Actividad::find($id);
+        return view('actividad.edit')->with('actividad',$actividad);
+    }
+/**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function show($id)
+    {
+        //
+    }
+    
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function update($id)
+    {
+        return redirect('/actividades');
+    }
+    
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function destroy($id)
+    {
+        //
+    }
 }

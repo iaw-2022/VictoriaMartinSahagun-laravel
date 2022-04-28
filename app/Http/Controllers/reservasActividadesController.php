@@ -28,4 +28,44 @@ class reservasActividadesController extends Controller
     public function store(Request $request){
         return redirect('/reservas/actividades');
     }
+
+    public function edit($id){
+        $reserva = ReservasActividades::find($id);
+        $cabana = Cabana::find($reserva->cabana_id);
+        $actividad = Actividad::find($reserva->actividad_id); 
+        return view('reservas_actividades.edit')->with('reserva',$reserva)->with('cabana',$cabana)->with('actividad',$actividad);
+    }
+
+/**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function show($id)
+    {
+        //
+    }
+    
+    /**
+    * Update the specified resource in storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function update($id)
+    {
+        return redirect('/reservas/actividades');
+    }
+    
+    /**
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function destroy($id)
+    {
+        //
+    }
 }
