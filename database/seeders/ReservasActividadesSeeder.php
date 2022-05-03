@@ -19,7 +19,7 @@ class ReservasActividadesSeeder extends Seeder
             [ 
                 'actividad_id'=>1,
                 'cabana_id'=>1,
-                'cantidad_personas'=>4
+                'cantidad_personas'=>2
             ],
             [ 
                 'actividad_id'=>2,
