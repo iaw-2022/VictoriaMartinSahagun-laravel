@@ -15,14 +15,14 @@
       </div>
       <div class="form-group">
         <label for="dia" class="form-label mt-4">Dia</label>
-        <select name="dias" class="form-select" tabindex="3">
-            <option value="lunes">Lunes</option>
-            <option value="martes">Martes</option>
-            <option value="miercoles">Miercoles</option>
-            <option value="jueves">Jueves</option>
-            <option value="viernes">Viernes</option>
-            <option value="sabado">Sabado</option>
-            <option value="domingo">Domingo</option>
+        <select name="dia" class="form-select" tabindex="3">
+            <option value="lunes" {{($actividad->dia == 'lunes') ? "selected" : ""}}>Lunes</option>
+            <option value="martes" {{($actividad->dia == 'martes') ? "selected" : ""}}>Martes</option>
+            <option value="miercoles" {{($actividad->dia == 'miercoles') ? "selected" : ""}}>Miercoles</option>
+            <option value="jueves" {{($actividad->dia == 'jueves') ? "selected" : ""}}>Jueves</option>
+            <option value="viernes" {{($actividad->dia == 'viernes') ? "selected" : ""}}>Viernes</option>
+            <option value="sabado" {{($actividad->dia == 'sabado') ? "selected" : ""}}>Sabado</option>
+            <option value="domingo" {{($actividad->dia == 'domingo') ? "selected" : ""}}>Domingo</option>
         </select>
       </div>
       <div class="form-group">

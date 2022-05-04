@@ -17,16 +17,17 @@ class ComidaController extends Controller
     }
 
     public function store(Request $request){
-       /*
-        $comidas = new Comida();
 
-        $comidas->nombre = $request->get('nombre');
-        $comidas->descripcion = $request->get('descripcion');
-        $comidas->dia = $request->get('dia');
-        $comidas->comida(Alm/Cen) = $request->get('comida(Alm/Cen)');
+        $comida = new Comida();
 
-        $comidas->save();
-        */
+        $comida->nombre = $request->get('nombre');
+        $comida->descripcion = $request->get('descripcion');
+        $comida->dia = $request->get('dia');
+        $comida->tipo = $request->get('tipo');
+        $comida->img = '/img/default.jpg';
+
+        $comida->save();
+
         return redirect('/comidas');
     }
 
@@ -55,6 +56,16 @@ class ComidaController extends Controller
     */
     public function update($id)
     {
+        $comida = Comida::find($id);
+
+        $comida->nombre = $request->get('nombre');
+        $comida->descripcion = $request->get('descripcion');
+        $comida->dia = $request->get('dia');
+        $comida->tipo = $request->get('tipo');
+        $comida->img = '/img/default.jpg';
+
+        $comida->save();
+
         return redirect('/comidas');
     }
     

@@ -11,16 +11,16 @@
         <div class="form-group">
             <label for="numero" class="form-label mt-4">Numero cabaña</label>
             <select id="numero" name="nombres" class="form-select" tabindex="1">
-                @foreach ($cabanas as $cabana)
-                    <option x-data-cant="{{$cabana->capacidad}}" value="{{$cabana->id}}">{{$cabana->numero}}</option>
+                @foreach ($cabanas as $ca)
+                    <option x-data-cant="{{$ca->capacidad}}" value="{{$ca->id}}" {{($cabana->numero == $ca->numero) ? "selected" : ""}}>{{$ca->numero}}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
             <label for="nombre" class="form-label mt-4">Nombre comida</label>
             <select name="nombres" class="form-select" tabindex="2">
-                @foreach ($comidas as $comida)
-                    <option value="{{$comida->id}}">{{$comida->nombre}}</option>
+                @foreach ($comidas as $co)
+                    <option value="{{$co->id}}" {{($comida->nombre == $co->nombre) ? "selected" : ""}}>{{$co->nombre}}</option>
                 @endforeach
             </select>
         </div>

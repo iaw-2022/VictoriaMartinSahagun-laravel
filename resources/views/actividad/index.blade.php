@@ -20,7 +20,9 @@
               <td>
                   <a class="btn btn-primary btn-sm" href="/actividades/{{$actividad->id}}">Mas informacion</a>
                   <a class="btn btn-info btn-sm" href="/actividades/{{$actividad->id}}/edit">Editar</a>
-                  <a class="btn btn-danger btn-sm">Eliminar</a>
+                  @csrf
+                  @method('DELETE') 
+                  <button class="btn btn-danger btn-sm">Eliminar</button>
               </td>
           </tr>
       @endforeach

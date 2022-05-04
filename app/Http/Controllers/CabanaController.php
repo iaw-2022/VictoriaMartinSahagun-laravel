@@ -17,14 +17,14 @@ class CabanaController extends Controller
     }
 
     public function store(Request $request){
-       /*
-        $cabanas = new Cabana();
 
-        $cabanas->numero = $request->get('numero');
-        $cabanas->capacidad = $request->get('capacidad');
+        $cabana = new Cabana();
 
-        $cabanas->save();
-        */
+        $cabana->numero = $request->get('numero');
+        $cabana->capacidad = $request->get('capacidad');
+
+        $cabana->save();
+
         return redirect('/cabanas');
     }
 
@@ -52,6 +52,13 @@ class CabanaController extends Controller
     */
     public function update($id)
     {
+        $cabana = Cabana::find($id);
+
+        $cabana->numero = $request->get('numero');
+        $cabana->capacidad = $request->get('capacidad');
+
+        $cabana->save();
+
         return redirect('/cabanas');
     }
     

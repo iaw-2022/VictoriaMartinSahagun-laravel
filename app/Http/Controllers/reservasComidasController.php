@@ -28,6 +28,14 @@ class reservasComidasController extends Controller
     }
 
     public function store(Request $request){
+        $reservas_comidas = new ReservasComidas();
+
+        $reservas_comidas->cabana_id = $request->get('numero');
+        $reservas_comidas->comida_id = $request->get('nombre');
+        $reservas_comidas->cantidad_personas = $request->get('cantidad_personas');
+
+        $reservas_comidas->save();
+
         return redirect('/reservas/comidas');
     }
 

@@ -14,7 +14,7 @@
       </div>
       <div class="form-group">
         <label for="dia" class="form-label mt-4">Dia</label>
-        <select name="dias" class="form-select" tabindex="3">
+        <select name="dia" class="form-select" tabindex="3">
             <option value="lunes">Lunes</option>
             <option value="martes">Martes</option>
             <option value="miercoles">Miercoles</option>
@@ -26,7 +26,7 @@
       </div>
       <div class="form-group">
         <label for="tipo" class="form-label mt-4">Tipo</label>
-        <select name="driver_3_id" class="form-select" tabindex="4">
+        <select name="tipo" class="form-select" tabindex="4">
             <option value="almuerzo">Almuerzo</option>
             <option value="cena">Cena</option>
         </select>

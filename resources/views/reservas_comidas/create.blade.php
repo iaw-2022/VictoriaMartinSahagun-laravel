@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label for="numero" class="form-label mt-4" >Numero cabaña</label>
-            <select id="numero" name="numeros" class="form-select" tabindex="1">
+            <select id="numero" name="numero" class="form-select" tabindex="1">
                 @foreach ($cabanas as $cabana)
                     <option x-data-cant="{{$cabana->capacidad}}" value="{{$cabana->id}}">{{$cabana->numero}}</option>
                 @endforeach
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <label for="nombre" class="form-label mt-4">Nombre comida</label>
-            <select name="nombres" class="form-select" tabindex="2">
+            <select name="nombre" class="form-select" tabindex="2">
                 @foreach ($comidas as $comida)
                     <option value="{{$comida->id}}">{{$comida->nombre}}</option>
                 @endforeach

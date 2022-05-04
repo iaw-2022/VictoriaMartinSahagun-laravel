@@ -28,6 +28,14 @@ class reservasActividadesController extends Controller
     }
 
     public function store(Request $request){
+        $reserva_actividad = new ReservasActividades();
+
+        $reserva_actividad->cabana_id = $request->get('numero');
+        $reserva_actividad->actividad_id = $request->get('nombre');
+        $reserva_actividad->cantidad_personas = $request->get('cantidad_personas');
+
+        $reserva_actividad->save();
+
         return redirect('/reservas/actividades');
     }
 
@@ -60,6 +68,14 @@ class reservasActividadesController extends Controller
     */
     public function update($id)
     {
+        $reserva_actividad = ReservasActividades::find($id);
+
+        $reserva_actividad->cabana_id = $request->get('numero');
+        $reserva_actividad->actividad_id = $request->get('nombre');
+        $reserva_actividad->cantidad_personas = $request->get('cantidad_personas');
+
+        $reserva_actividad->save();
+
         return redirect('/reservas/actividades');
     }
     

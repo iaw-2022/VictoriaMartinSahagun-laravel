@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label for="numero" class="form-label mt-4">Numero cabaña</label>
-            <select id="numero" name="numeros" class="form-select" tabindex="1">
+            <select id="numero" name="numero" class="form-select" tabindex="1">
                 @foreach ($cabanas as $cabana)
                     <option x-data-cant="{{$cabana->capacidad}}" value="{{$cabana->id}}">{{$cabana->numero}}</option>
                 @endforeach
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <label for="nombre" class="form-label mt-4">Nombre actividad</label>
-            <select name="nombres" class="form-select" tabindex="2">
+            <select name="nombre" class="form-select" tabindex="2">
                 @foreach ($actividades as $actividad)
                     <option value="{{$actividad->id}}">{{$actividad->nombre}}</option>
                 @endforeach
@@ -27,12 +27,10 @@
             <label for="cantidad_personas" class="form-label mt-4">Cantidad personas</label>
             <input type="text" id="cantidad_personas" name="cantidad_personas" class="form-control" tabindex="3" oninput="verificarCantidadPersonas()">
         </div>
-        <label for="localizacion" class="form-label mt-4">Localizacion</label>
-        <input type="text" id="localizacion" name="localizacion" class="form-control" tabindex="4">
         
         <div class="mt-4">
-            <button id="guardar" type="submit" class="btn btn-outline-primary" tabindex="5">Guardar</button>
-            <a class="btn btn-outline-danger" href="/reservas/actividades" tabindex="6">Cancelar</a>
+            <button id="guardar" type="submit" class="btn btn-outline-primary" tabindex="4">Guardar</button>
+            <a class="btn btn-outline-danger" href="/reservas/actividades" tabindex="5">Cancelar</a>
         </div>
     </form>
 </div>
