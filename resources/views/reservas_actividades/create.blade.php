@@ -25,32 +25,33 @@
         </div>
         <div class="form-group">
             <label for="cantidad_personas" class="form-label mt-4">Cantidad personas</label>
-            <input type="text" name="cantidad_personas" class="form-control" id="cantidad_personas" tabindex="3" oninput="verificarCantidadPersonas()">
+            <input type="text" id="cantidad_personas" name="cantidad_personas" class="form-control" tabindex="3" oninput="verificarCantidadPersonas()">
         </div>
         <label for="localizacion" class="form-label mt-4">Localizacion</label>
-        <input type="text" name="localizacion" class="form-control" id="localizacion" tabindex="4">
+        <input type="text" id="localizacion" name="localizacion" class="form-control" tabindex="4">
+        
         <div class="mt-4">
             <button id="guardar" type="submit" class="btn btn-outline-primary" tabindex="5">Guardar</button>
             <a class="btn btn-outline-danger" href="/reservas/actividades" tabindex="6">Cancelar</a>
         </div>
     </form>
-    <script>
-        function verificarCantidadPersonas(){
-            let mensajeError = document.getElementById("error_cantidad");
-            let botonGuardar = document.getElementById("guardar");
-            let numeroCabana = document.getElementById("numero");
-            let cantidad = document.getElementById("cantidad_personas").value;
-
-            capacidadMaxima = parseInt(numeroCabana.options[numeroCabana.selectedIndex].getAttribute('x-data-cant'));
-
-            if(cantidad>capacidadMaxima){
-                mensajeError.hidden = false;
-                botonGuardar.disabled = true;
-            }else{
-                mensajeError.hidden = true;
-                botonGuardar.disabled = false;
-            }
-        }
-    </script>
 </div>
 @endsection
+<script>
+    function verificarCantidadPersonas(){
+        let mensajeError = document.getElementById("error_cantidad");
+        let botonGuardar = document.getElementById("guardar");
+        let numeroCabana = document.getElementById("numero");
+        let cantidad = document.getElementById("cantidad_personas").value;
+
+        capacidadMaxima = parseInt(numeroCabana.options[numeroCabana.selectedIndex].getAttribute('x-data-cant'));
+
+        if(cantidad>capacidadMaxima){
+            mensajeError.hidden = false;
+            botonGuardar.disabled = true;
+        }else{
+            mensajeError.hidden = true;
+            botonGuardar.disabled = false;
+        }
+    }
+</script>

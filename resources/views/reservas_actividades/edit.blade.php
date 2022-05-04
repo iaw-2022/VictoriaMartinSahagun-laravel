@@ -26,10 +26,11 @@
         </div>
         <div class="form-group">
             <label for="cantidad_personas" class="form-label mt-4">Cantidad personas</label>
-            <input type="text" name="cantidad_personas" class="form-control" id="cantidad_personas" value="{{$reserva->cantidad_personas}}" oninput="verificarCantidadPersonas()">
+            <input type="text" id="cantidad_personas" name="cantidad_personas" class="form-control" value="{{$reserva->cantidad_personas}}" oninput="verificarCantidadPersonas()" tabindex="3">
         </div>
         <label for="localizacion" class="form-label mt-4">Localizacion</label>
-        <input type="text" name="localizacion" class="form-control" id="localizacion" value="{{$actividad->localizacion}}">
+        <input type="text" id="localizacion" name="localizacion" class="form-control" value="{{$actividad->localizacion}}" tabindex="4">
+        
         <div class="mt-4">
             <button id="guardar" type="submit" class="btn btn-outline-primary" tabindex="5">Guardar</button>
             <a class="btn btn-outline-danger" href="/reservas/actividades" tabindex="6">Cancelar</a>

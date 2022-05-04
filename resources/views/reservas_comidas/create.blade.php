@@ -25,8 +25,9 @@
         </div>
         <div class="form-group">
             <label for="cantidad_personas" class="form-label mt-4">Cantidad personas</label>
-            <input type="text" name="cantidad_personas" class="form-control" id="cantidad_personas" oninput="verificarCantidadPersonas()" tabindex="3">
+            <input type="text" id="cantidad_personas" name="cantidad_personas" class="form-control" oninput="verificarCantidadPersonas()" tabindex="3">
         </div>
+        
         <div class="mt-4">
             <button id="guardar" type="submit" class="btn btn-outline-primary" tabindex="4">Guardar</button>
             <a class="btn btn-outline-danger" href="/reservas/comidas" tabindex="5">Cancelar</a>
