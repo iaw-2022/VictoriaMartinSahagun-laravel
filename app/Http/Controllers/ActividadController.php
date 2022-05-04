@@ -18,17 +18,17 @@ class ActividadController extends Controller
     }
 
     public function store(Request $request){
-       /*
-        $actividades = new Actividad();
+        $actividad = new Actividad();
 
-        $actividades->dia = $request->get('dia');
-        $actividades->nombre = $request->get('nombre');
-        $actividades->descripcion = $request->get('descripcion');
-        $actividades->horario = $request->get('horario');
-        $actividades->localizacion = $request->get('localizacion');
+        $actividad->dia = $request->get('dia');
+        $actividad->nombre = $request->get('nombre');
+        $actividad->descripcion = $request->get('descripcion');
+        $actividad->horario = $request->get('horario');
+        $actividad->localizacion = $request->get('localizacion');
+        $actividad->img = '/img/default.jpg';
 
-        $actividades->save();
-        */
+        $actividad->save();
+        
         return redirect('/actividades');
     }
 
@@ -54,8 +54,19 @@ class ActividadController extends Controller
     * @param  int  $id
     * @return Response
     */
-    public function update($id)
+    public function update(Request $request, $id)
     {
+        $actividad = Actividad::find($id);
+
+        $actividad->dia = $request->get('dia');
+        $actividad->nombre = $request->get('nombre');
+        $actividad->descripcion = $request->get('descripcion');
+        $actividad->horario = $request->get('horario');
+        $actividad->localizacion = $request->get('localizacion');
+        $actividad->img = '/img/default.jpg';
+
+        $actividad->save();
+
         return redirect('/actividades');
     }
     
@@ -67,6 +78,10 @@ class ActividadController extends Controller
     */
     public function destroy($id)
     {
-        //
+        $actividad = Actividad::find($id);
+
+        $actividad->delete();
+
+        return redirect('/actividades');
     }
 }
