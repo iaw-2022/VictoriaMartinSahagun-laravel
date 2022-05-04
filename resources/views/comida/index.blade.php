@@ -8,6 +8,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Día</th>
         <th scope="col">Tipo</th>
+        <th scope="col">Más información</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
@@ -18,9 +19,14 @@
               <td>{{$comida->dia}}</td>
               <td>{{$comida->tipo}}</td>
               <td>
-                  <a class="btn btn-primary btn-sm" href="/comidas/{{$comida->id}}">Mas informacion</a> 
+                <a class="btn btn-primary btn-sm" href="/comidas/{{$comida->id}}">Ver</a> 
+              </td>
+              <td>
+                <form action="/comidas/{{$comida->id}}" method="POST">
                   <a class="btn btn-info btn-sm" href="/comidas/{{$comida->id}}/edit">Editar</a>
-                  <a class="btn btn-danger btn-sm">Eliminar</a>
+                  @csrf
+                  @method('DELETE') 
+                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
               </td>
           </tr>
       @endforeach

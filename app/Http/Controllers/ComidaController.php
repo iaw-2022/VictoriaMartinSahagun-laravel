@@ -54,7 +54,7 @@ class ComidaController extends Controller
     * @param  int  $id
     * @return Response
     */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $comida = Comida::find($id);
 
@@ -77,7 +77,11 @@ class ComidaController extends Controller
     */
     public function destroy($id)
     {
-        //
+        $comida = Comida::find($id);
+
+        $comida->delete();
+
+        return redirect('/comidas');
     }
 
 }

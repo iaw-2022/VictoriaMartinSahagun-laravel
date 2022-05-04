@@ -50,7 +50,7 @@ class CabanaController extends Controller
     * @param  int  $id
     * @return Response
     */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $cabana = Cabana::find($id);
 
@@ -70,6 +70,10 @@ class CabanaController extends Controller
     */
     public function destroy($id)
     {
-        //
+        $cabana = Cabana::find($id);
+
+        $cabana->delete();
+
+        return redirect('/cabanas');
     }
 }

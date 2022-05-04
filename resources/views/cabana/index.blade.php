@@ -16,8 +16,12 @@
               <td>{{$cabana->numero}}</td>
               <td>{{$cabana->capacidad}}</td>
               <td>
+                <form action="/cabanas/{{$cabana->id}}" method="POST">
                   <a class="btn btn-info btn-sm" href="/cabanas/{{$cabana->id}}/edit">Editar</a>
-                  <a class="btn btn-danger btn-sm">Eliminar</a>
+                  @csrf
+                  @method('DELETE') 
+                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                </form>
               </td>
           </tr>
       @endforeach

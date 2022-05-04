@@ -66,8 +66,16 @@ class reservasComidasController extends Controller
     * @param  int  $id
     * @return Response
     */
-    public function update($id)
+    public function update(Request $request, $id)
     {
+        $reserva_comida = ReservasComidas::find($id);
+
+        $reserva_comida->cabana_id = $request->get('numero');
+        $reserva_comida->comida_id = $request->get('nombre');
+        $reserva_comida->cantidad_personas = $request->get('cantidad_personas');
+
+        $reserva_comida->save();
+
         return redirect('/reservas/comidas');
     }
     
@@ -79,6 +87,10 @@ class reservasComidasController extends Controller
     */
     public function destroy($id)
     {
-        //
+        $reserva= ReservasComidas::find($id);
+
+        $reserva->delete();
+        
+        return redirect('/reservas/comidas');
     }
 }

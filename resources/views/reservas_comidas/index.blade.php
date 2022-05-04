@@ -18,8 +18,12 @@
         <td>{{$comidas[$reserva->comida_id]}}</td>
         <td>{{$reserva->cantidad_personas}}</td>
         <td>
-          <a class="btn btn-info btn-sm" href="/reservas/comidas/{{$reserva->id}}/edit">Editar</a>
-          <a class="btn btn-danger btn-sm">Eliminar</a>
+          <form action="/reservas/comidas/{{$reserva->id}}" method="POST">
+            <a class="btn btn-info btn-sm" href="/reservas/comidas/{{$reserva->id}}/edit">Editar</a>
+            @csrf
+            @method('DELETE') 
+            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+          </form>
         </td>
       </tr>
       @endforeach

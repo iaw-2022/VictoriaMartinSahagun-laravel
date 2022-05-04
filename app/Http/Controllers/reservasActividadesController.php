@@ -66,7 +66,7 @@ class reservasActividadesController extends Controller
     * @param  int  $id
     * @return Response
     */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $reserva_actividad = ReservasActividades::find($id);
 
@@ -87,6 +87,10 @@ class reservasActividadesController extends Controller
     */
     public function destroy($id)
     {
-        //
+        $reserva = ReservasActividades::find($id);
+
+        $reserva->delete();
+
+        return redirect('/reservas/actividades');
     }
 }

@@ -27,7 +27,7 @@
       </div>
       <div class="form-group">
         <label for="tipo" class="form-label mt-4">Tipo</label>
-        <select name="driver_3_id" class="form-select" tabindex="4">
+        <select name="tipo" class="form-select" tabindex="4">
             <option value="almuerzo" {{($comida->tipo == 'almuerzo') ? "selected" : ""}}>Almuerzo</option>
             <option value="cena" {{($comida->tipo == 'cena') ? "selected" : ""}}>Cena</option>
         </select>
