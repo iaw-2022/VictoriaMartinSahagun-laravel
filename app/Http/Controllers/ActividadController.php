@@ -22,7 +22,7 @@ class ActividadController extends Controller
         $request->validate([
             'nombre' => 'required|alpha',
             'dia' => 'required',
-            'descripcion' => 'required|alpha',
+            'descripcion' => 'required',
             'horario' => 'required',
             'localizacion' => 'required|alpha'
         ]);

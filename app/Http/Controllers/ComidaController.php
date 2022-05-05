@@ -20,7 +20,7 @@ class ComidaController extends Controller
         $request->validate([
             'nombre' => 'required|alpha',
             'dia' => 'required',
-            'descripcion' => 'required|alpha',
+            'descripcion' => 'required',
             'tipo' => 'required',
         ]);
         
@@ -65,7 +65,7 @@ class ComidaController extends Controller
         $request->validate([
             'nombre' => 'required|alpha',
             'dia' => 'required',
-            'descripcion' => 'required|alpha',
+            'descripcion' => 'required',
             'tipo' => 'required',
         ]);
 
