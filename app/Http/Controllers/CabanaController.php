@@ -17,6 +17,10 @@ class CabanaController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'numero' => 'required|int',
+            'capacidad' => 'required|int'
+        ]);
 
         $cabana = new Cabana();
 
@@ -52,6 +56,11 @@ class CabanaController extends Controller
     */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'numero' => 'required|int',
+            'capacidad' => 'required|int',
+        ]);
+
         $cabana = Cabana::find($id);
 
         $cabana->numero = $request->get('numero');

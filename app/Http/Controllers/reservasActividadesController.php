@@ -18,16 +18,24 @@ class reservasActividadesController extends Controller
             $cabanas_array = Arr::add($cabanas_array, $reserva->cabana_id, Cabana::find($reserva->cabana_id)->numero);
             $actividades_array = Arr::add($actividades_array, $reserva->actividad_id, Actividad::find($reserva->actividad_id)->nombre);
         }
+        
         return view('reservas_actividades.index')->with('reservas_actividades',$reservas_actividades)->with('cabanas',$cabanas_array)->with('actividades',$actividades_array);
     }
 
     public function create(){
         $cabanas = Cabana::all();
         $actividades = Actividad::all();
+
         return view('reservas_actividades.create')->with('cabanas',$cabanas)->with('actividades',$actividades);
     }
 
     public function store(Request $request){
+        $request->validate([
+            'numero' => 'required|int',
+            'nombre' => 'required',
+            'cantidad_personas' => 'required',
+        ]);
+
         $reserva_actividad = new ReservasActividades();
 
         $reserva_actividad->cabana_id = $request->get('numero');
@@ -45,6 +53,7 @@ class reservasActividadesController extends Controller
         $reserva = ReservasActividades::find($id);
         $cabana = Cabana::find($reserva->cabana_id);
         $actividad = Actividad::find($reserva->actividad_id); 
+
         return view('reservas_actividades.edit')->with('reserva',$reserva)->with('cabana',$cabana)->with('actividad',$actividad)
         ->with('cabanas',$cabanas)->with('actividades',$actividades);
     }
@@ -68,6 +77,12 @@ class reservasActividadesController extends Controller
     */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'numero' => 'required|int',
+            'nombre' => 'required',
+            'cantidad_personas' => 'required',
+        ]);
+
         $reserva_actividad = ReservasActividades::find($id);
 
         $reserva_actividad->cabana_id = $request->get('numero');

@@ -1,6 +1,15 @@
 @extends('layouts.plantillaBase')
 
 @section('contenido')
+@if ($errors->any())
+        <div class="card alert-danger mt-4 mx-auto text-center" style="max-width: 20rem;">
+            <h4>Ocurrio un error:</h4>
+                @foreach ($errors->all() as $error)
+                  <br>{{ $error }}
+                @endforeach
+        </div>
+@endif
+
 <div class="container-md mt-5">
     <form action="/actividades/{{$actividad->id}}" method="POST">
         @method('PUT')

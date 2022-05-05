@@ -17,7 +17,13 @@ class ComidaController extends Controller
     }
 
     public function store(Request $request){
-
+        $request->validate([
+            'nombre' => 'required',
+            'dia' => 'required',
+            'descripcion' => 'required',
+            'tipo' => 'required',
+        ]);
+        
         $comida = new Comida();
 
         $comida->nombre = $request->get('nombre');
@@ -56,6 +62,13 @@ class ComidaController extends Controller
     */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'dia' => 'required',
+            'descripcion' => 'required',
+            'tipo' => 'required',
+        ]);
+
         $comida = Comida::find($id);
 
         $comida->nombre = $request->get('nombre');

@@ -18,6 +18,15 @@ class ActividadController extends Controller
     }
 
     public function store(Request $request){
+        
+        $request->validate([
+            'nombre' => 'required',
+            'dia' => 'required',
+            'descripcion' => 'required',
+            'horario' => 'required',
+            'localizacion' => 'required'
+        ]);
+        
         $actividad = new Actividad();
 
         $actividad->dia = $request->get('dia');
@@ -26,7 +35,7 @@ class ActividadController extends Controller
         $actividad->horario = $request->get('horario');
         $actividad->localizacion = $request->get('localizacion');
         $actividad->img = '/img/default.jpg';
-
+        
         $actividad->save();
         
         return redirect('/actividades');
@@ -56,6 +65,14 @@ class ActividadController extends Controller
     */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'dia' => 'required',
+            'descripcion' => 'required',
+            'horario' => 'required',
+            'localizacion' => 'required'
+        ]);
+
         $actividad = Actividad::find($id);
 
         $actividad->dia = $request->get('dia');

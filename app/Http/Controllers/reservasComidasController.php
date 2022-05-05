@@ -28,6 +28,12 @@ class reservasComidasController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'numero' => 'required|int',
+            'nombre' => 'required',
+            'cantidad_personas' => 'required',
+        ]);
+
         $reservas_comidas = new ReservasComidas();
 
         $reservas_comidas->cabana_id = $request->get('numero');
@@ -68,6 +74,12 @@ class reservasComidasController extends Controller
     */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'numero' => 'required|int',
+            'nombre' => 'required',
+            'cantidad_personas' => 'required',
+        ]);
+
         $reserva_comida = ReservasComidas::find($id);
 
         $reserva_comida->cabana_id = $request->get('numero');
