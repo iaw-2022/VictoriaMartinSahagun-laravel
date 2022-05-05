@@ -20,7 +20,7 @@ class ActividadController extends Controller
     public function store(Request $request){
         
         $request->validate([
-            'nombre' => 'required|alpha',
+            'nombre' => 'required',
             'dia' => 'required',
             'descripcion' => 'required',
             'horario' => 'required',
@@ -66,7 +66,7 @@ class ActividadController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre' => 'required|alpha',
+            'nombre' => 'required',
             'dia' => 'required',
             'descripcion' => 'required',
             'horario' => 'required',

@@ -19,7 +19,7 @@ class CabanaController extends Controller
     public function store(Request $request){
         $request->validate([
             'numero' => 'required|int',
-            'capacidad' => 'required|int'
+            'capacidad' => 'required|int|min:1'
         ]);
 
         $cabana = new Cabana();

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\DB;
 use App\Models\ReservasComidas;
 use App\Models\Cabana;
 use App\Models\Comida;
@@ -30,17 +32,34 @@ class reservasComidasController extends Controller
     public function store(Request $request){
         $request->validate([
             'numero' => 'required|int',
-            'nombre' => 'required|alpha',
-            'cantidad_personas' => 'required|int',
+            'nombre' => 'required',
+            'cantidad_personas' => 'required|int|min:1',
         ]);
 
-        $reservas_comidas = new ReservasComidas();
+        $reserva_comida = new ReservasComidas();
 
-        $reservas_comidas->cabana_id = $request->get('numero');
-        $reservas_comidas->comida_id = $request->get('nombre');
-        $reservas_comidas->cantidad_personas = $request->get('cantidad_personas');
-
-        $reservas_comidas->save();
+        $reserva_comida->cabana_id = $request->get('numero');
+        $reserva_comida->comida_id = $request->get('nombre');
+        $reserva_comida->cantidad_personas = $request->get('cantidad_personas');
+        
+        $comida = Comida::find($reserva_comida->comida_id);
+        $cabana = Cabana::find($reserva_comida->cabana_id);
+        $reservas = DB::table('reservas_comidas')
+                    ->join('comidas', 'reservas_comidas.comida_id', '=', 'comidas.id')
+                    ->select('reservas_comidas.*','comidas.tipo','comidas.dia')
+                    ->where('cabana_id','=',$reserva_comida->cabana_id)
+                    ->where('tipo','=',$comida->tipo)
+                    ->where('dia','=',$comida->dia)
+                    ->get();
+        $personas_reserva=$reserva_comida->cantidad_personas;
+        foreach($reservas as $reserva){
+            $personas_reserva = $personas_reserva + $reserva->cantidad_personas;
+        }
+        if($personas_reserva > $cabana->capacidad){
+            throw ValidationException::withMessages(['cantidad_personas'=>'Muchas reservas']);
+        }else{
+            $reserva_comida->save();
+        }
 
         return redirect('/reservas/comidas');
     }
@@ -76,17 +95,36 @@ class reservasComidasController extends Controller
     {
         $request->validate([
             'numero' => 'required|int',
-            'nombre' => 'required|alpha',
-            'cantidad_personas' => 'required|int',
+            'nombre' => 'required',
+            'cantidad_personas' => 'required|int|min:1',
         ]);
 
         $reserva_comida = ReservasComidas::find($id);
 
+        $cantidad_anterior = $reserva_comida->cantidad_personas;
         $reserva_comida->cabana_id = $request->get('numero');
         $reserva_comida->comida_id = $request->get('nombre');
         $reserva_comida->cantidad_personas = $request->get('cantidad_personas');
 
-        $reserva_comida->save();
+        $comida = Comida::find($reserva_comida->comida_id);
+        $cabana = Cabana::find($reserva_comida->cabana_id);
+        $reservas = DB::table('reservas_comidas')
+                    ->join('comidas', 'reservas_comidas.comida_id', '=', 'comidas.id')
+                    ->select('reservas_comidas.*','comidas.tipo','comidas.dia')
+                    ->where('cabana_id','=',$reserva_comida->cabana_id)
+                    ->where('tipo','=',$comida->tipo)
+                    ->where('dia','=',$comida->dia)
+                    ->get();
+        $personas_reserva = $reserva_comida->cantidad_personas;
+        foreach($reservas as $reserva){
+            $personas_reserva = $personas_reserva + $reserva->cantidad_personas;
+        }
+        $personas_reserva = $personas_reserva - $cantidad_anterior;
+        if($personas_reserva > $cabana->capacidad){
+            throw ValidationException::withMessages(['cantidad_personas'=>'Muchas reservas']);
+        }else{
+            $reserva_comida->save();
+        }
 
         return redirect('/reservas/comidas');
     }

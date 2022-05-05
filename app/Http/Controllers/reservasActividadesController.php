@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\DB;
 use App\Models\ReservasActividades;
 use App\Models\Cabana;
 use App\Models\Actividad;
@@ -32,8 +34,8 @@ class reservasActividadesController extends Controller
     public function store(Request $request){
         $request->validate([
             'numero' => 'required|int',
-            'nombre' => 'required|alpha',
-            'cantidad_personas' => 'required|int',
+            'nombre' => 'required',
+            'cantidad_personas' => 'required|int|min:1',
         ]);
 
         $reserva_actividad = new ReservasActividades();
@@ -42,7 +44,15 @@ class reservasActividadesController extends Controller
         $reserva_actividad->actividad_id = $request->get('nombre');
         $reserva_actividad->cantidad_personas = $request->get('cantidad_personas');
 
-        $reserva_actividad->save();
+        $reservas = DB::table('reservas_actividades')
+                    ->where('cabana_id','=',$reserva_actividad->cabana_id)
+                    ->where('actividad_id','=',$reserva_actividad->actividad_id)
+                    ->get();
+        if($reservas->isEmpty()){
+            $reserva_actividad->save();
+        }else{
+            throw ValidationException::withMessages(['cantidad_personas'=>'Ya existe']);
+        }
 
         return redirect('/reservas/actividades');
     }
@@ -80,7 +90,7 @@ class reservasActividadesController extends Controller
         $request->validate([
             'numero' => 'required|int',
             'nombre' => 'required',
-            'cantidad_personas' => 'required|int',
+            'cantidad_personas' => 'required|int|min:1',
         ]);
 
         $reserva_actividad = ReservasActividades::find($id);
@@ -89,7 +99,16 @@ class reservasActividadesController extends Controller
         $reserva_actividad->actividad_id = $request->get('nombre');
         $reserva_actividad->cantidad_personas = $request->get('cantidad_personas');
 
-        $reserva_actividad->save();
+        $reservas = DB::table('reservas_actividades')
+                    ->where('cabana_id','=',$reserva_actividad->cabana_id)
+                    ->where('actividad_id','=',$reserva_actividad->actividad_id)
+                    ->where('id','!=',$id)
+                    ->get();
+        if($reservas->isEmpty()){
+            $reserva_actividad->save();
+        }else{
+            throw ValidationException::withMessages(['cantidad_personas'=>'Ya existe']);
+        }
 
         return redirect('/reservas/actividades');
     }
