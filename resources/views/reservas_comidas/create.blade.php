@@ -2,7 +2,7 @@
 
 @section('contenido')
 @if ($errors->any())
-        <div class="card alert-danger mt-4 mx-auto text-center" style="max-width: 20rem;">
+        <div class="card alert-danger mt-4 mx-auto text-center" style="max-width: 40rem;">
             <h4>Ocurrio un error:</h4>
                 @foreach ($errors->all() as $error)
                   <br>{{ $error }}
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="numero" class="form-label mt-4" >Numero cabaña</label>
-            <select id="numero" name="numero" class="form-select" tabindex="1">
+            <select id="numero" name="numero" class="form-select" value="{{old('numero')}}" tabindex="1">
                 @foreach ($cabanas as $cabana)
                     <option x-data-cant="{{$cabana->capacidad}}" value="{{$cabana->id}}">{{$cabana->numero}}</option>
                 @endforeach
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="nombre" class="form-label mt-4">Nombre comida</label>
-            <select name="nombre" class="form-select" tabindex="2">
+            <select name="nombre" class="form-select" value="{{old('nombre')}}" tabindex="2">
                 @foreach ($comidas as $comida)
                     <option value="{{$comida->id}}">{{$comida->nombre}}</option>
                 @endforeach
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="cantidad_personas" class="form-label mt-4">Cantidad personas</label>
-            <input type="text" id="cantidad_personas" name="cantidad_personas" class="form-control" oninput="verificarCantidadPersonas()" tabindex="3">
+            <input type="text" id="cantidad_personas" name="cantidad_personas" class="form-control" oninput="verificarCantidadPersonas()" value="{{old('cantidad_personas')}}" tabindex="3">
         </div>
         
         <div class="mt-4">
@@ -43,7 +43,6 @@
         </div>
     </form>
 </div>
-@endsection
 <script>
     function verificarCantidadPersonas(){
         let mensajeError = document.getElementById("error_cantidad");
@@ -62,3 +61,4 @@
         }
     }
 </script>
+@endsection

@@ -2,7 +2,7 @@
 
 @section('contenido')
 @if ($errors->any())
-        <div class="card alert-danger mt-4 mx-auto text-center" style="max-width: 20rem;">
+        <div class="card alert-danger mt-4 mx-auto text-center" style="max-width: 40rem;">
             <h4>Ocurrio un error:</h4>
                 @foreach ($errors->all() as $error)
                   <br>{{ $error }}
