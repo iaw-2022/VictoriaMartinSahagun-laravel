@@ -12,6 +12,7 @@
     <h5 class="card-title" style="color:black;">Localizacion</h5>
     <p class="card-text">{{$actividad->localizacion}}</p>
   </div>
+  <a class="btn btn-outline-secondar" href="/actividades">Volver</a>
 </div>
 
 @endsection

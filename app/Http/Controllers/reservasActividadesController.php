@@ -33,7 +33,7 @@ class reservasActividadesController extends Controller
         $request->validate([
             'numero' => 'required|int',
             'nombre' => 'required',
-            'cantidad_personas' => 'required',
+            'cantidad_personas' => 'required|int',
         ]);
 
         $reserva_actividad = new ReservasActividades();
@@ -80,7 +80,7 @@ class reservasActividadesController extends Controller
         $request->validate([
             'numero' => 'required|int',
             'nombre' => 'required',
-            'cantidad_personas' => 'required',
+            'cantidad_personas' => 'required|int',
         ]);
 
         $reserva_actividad = ReservasActividades::find($id);

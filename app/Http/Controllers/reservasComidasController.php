@@ -31,7 +31,7 @@ class reservasComidasController extends Controller
         $request->validate([
             'numero' => 'required|int',
             'nombre' => 'required',
-            'cantidad_personas' => 'required',
+            'cantidad_personas' => 'required|int',
         ]);
 
         $reservas_comidas = new ReservasComidas();
@@ -77,7 +77,7 @@ class reservasComidasController extends Controller
         $request->validate([
             'numero' => 'required|int',
             'nombre' => 'required',
-            'cantidad_personas' => 'required',
+            'cantidad_personas' => 'required|int',
         ]);
 
         $reserva_comida = ReservasComidas::find($id);

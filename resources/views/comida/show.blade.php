@@ -8,6 +8,7 @@
     <h5 class="card-title" style="color:black;">Descripcion</h5>
     <p class="card-text">{{$comida->descripcion}}</p>
   </div>
+  <a class="btn btn-outline-secondar" href="/comidas">Volver</a>
 </div>
 
 @endsection
