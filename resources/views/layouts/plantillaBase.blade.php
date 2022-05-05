@@ -16,11 +16,20 @@
   <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarColor01">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse"  id="toggleMobileMenu">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/cabanas">Cabañas
-                            </a>
+                            <a class="nav-link" href="/cabanas">Cabañas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/comidas">Comidas</a>

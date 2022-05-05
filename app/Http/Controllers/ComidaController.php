@@ -18,9 +18,9 @@ class ComidaController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'dia' => 'required',
-            'descripcion' => 'required',
+            'descripcion' => 'required|alpha',
             'tipo' => 'required',
         ]);
         
@@ -63,9 +63,9 @@ class ComidaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'dia' => 'required',
-            'descripcion' => 'required',
+            'descripcion' => 'required|alpha',
             'tipo' => 'required',
         ]);
 

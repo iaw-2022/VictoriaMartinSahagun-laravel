@@ -30,7 +30,7 @@ class reservasComidasController extends Controller
     public function store(Request $request){
         $request->validate([
             'numero' => 'required|int',
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'cantidad_personas' => 'required|int',
         ]);
 
@@ -76,7 +76,7 @@ class reservasComidasController extends Controller
     {
         $request->validate([
             'numero' => 'required|int',
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'cantidad_personas' => 'required|int',
         ]);
 

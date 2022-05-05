@@ -20,11 +20,11 @@ class ActividadController extends Controller
     public function store(Request $request){
         
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'dia' => 'required',
-            'descripcion' => 'required',
+            'descripcion' => 'required|alpha',
             'horario' => 'required',
-            'localizacion' => 'required'
+            'localizacion' => 'required|alpha'
         ]);
         
         $actividad = new Actividad();
@@ -66,11 +66,11 @@ class ActividadController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|alpha',
             'dia' => 'required',
             'descripcion' => 'required',
             'horario' => 'required',
-            'localizacion' => 'required'
+            'localizacion' => 'required|alpha'
         ]);
 
         $actividad = Actividad::find($id);
