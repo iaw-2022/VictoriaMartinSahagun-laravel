@@ -8,6 +8,7 @@ use App\Models\Actividad;
 
 class ActividadController extends Controller
 {
+    
     public function index(){
         $actividades = Actividad::all();
         return view('actividad.index')->with('actividades',$actividades);
