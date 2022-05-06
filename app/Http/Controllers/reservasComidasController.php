@@ -56,7 +56,7 @@ class reservasComidasController extends Controller
             $personas_reserva = $personas_reserva + $reserva->cantidad_personas;
         }
         if($personas_reserva > $cabana->capacidad){
-            throw ValidationException::withMessages(['cantidad_personas'=>'Muchas reservas']);
+            throw ValidationException::withMessages(['cantidad_personas'=>'there are no more reservations available for that cabin on that day and type.']);
         }else{
             $reserva_comida->save();
         }
@@ -121,7 +121,7 @@ class reservasComidasController extends Controller
         }
         $personas_reserva = $personas_reserva - $cantidad_anterior;
         if($personas_reserva > $cabana->capacidad){
-            throw ValidationException::withMessages(['cantidad_personas'=>'Muchas reservas']);
+            throw ValidationException::withMessages(['cantidad_personas'=>'there are no more reservations available for that cabin on that day and type.']);
         }else{
             $reserva_comida->save();
         }

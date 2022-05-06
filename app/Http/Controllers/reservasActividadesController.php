@@ -51,7 +51,7 @@ class reservasActividadesController extends Controller
         if($reservas->isEmpty()){
             $reserva_actividad->save();
         }else{
-            throw ValidationException::withMessages(['cantidad_personas'=>'Ya existe']);
+            throw ValidationException::withMessages(['cantidad_personas'=>'There is already a reservation for this activity.']);
         }
 
         return redirect('/reservas/actividades');
@@ -107,7 +107,7 @@ class reservasActividadesController extends Controller
         if($reservas->isEmpty()){
             $reserva_actividad->save();
         }else{
-            throw ValidationException::withMessages(['cantidad_personas'=>'Ya existe']);
+            throw ValidationException::withMessages(['cantidad_personas'=>'There is already a reservation for this activity.']);
         }
 
         return redirect('/reservas/actividades');
