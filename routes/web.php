@@ -14,17 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'App\Http\Controllers\welcomeController@index');
+Route::get('/', 'App\Http\Controllers\welcomeController@index')->middleware(['auth']);
 
-Route::resource('/actividades', 'App\Http\Controllers\actividadController');
+Route::resource('/actividades', 'App\Http\Controllers\actividadController')->middleware(['auth']);
 
-Route::resource('/comidas', 'App\Http\Controllers\comidaController');
+Route::resource('/comidas', 'App\Http\Controllers\comidaController')->middleware(['auth']);
 
-Route::resource('/cabanas', 'App\Http\Controllers\cabanaController');
+Route::resource('/cabanas', 'App\Http\Controllers\cabanaController')->middleware(['auth']);
 
-Route::resource('/reservas/comidas', 'App\Http\Controllers\reservasComidasController');
+Route::resource('/reservas/comidas', 'App\Http\Controllers\reservasComidasController')->middleware(['auth']);
 
-Route::resource('/reservas/actividades', 'App\Http\Controllers\reservasActividadesController');
+Route::resource('/reservas/actividades', 'App\Http\Controllers\reservasActividadesController')->middleware(['auth']);
 
 Route::get('/dashboard', function () {
     return view('home');
