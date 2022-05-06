@@ -22,9 +22,9 @@ Route::resource('/comidas', 'App\Http\Controllers\ComidaController')->middleware
 
 Route::resource('/cabanas', 'App\Http\Controllers\CabanaController')->middleware(['auth']);
 
-Route::resource('/reservas/comidas', 'App\Http\Controllers\ReservasComidasController')->middleware(['auth']);
+Route::resource('/reservas/comidas', 'App\Http\Controllers\reservasComidasController')->middleware(['auth']);
 
-Route::resource('/reservas/actividades', 'App\Http\Controllers\ReservasActividadesController')->middleware(['auth']);
+Route::resource('/reservas/actividades', 'App\Http\Controllers\reservasActividadesController')->middleware(['auth']);
 
 Route::get('/dashboard', function () {
     return view('home');
