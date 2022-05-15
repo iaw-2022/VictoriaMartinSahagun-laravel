@@ -13,7 +13,7 @@ class CabanaController extends Controller
     }
 
     public function index(){
-        $cabanas = Cabana::all();
+        $cabanas = Cabana::paginate(5);
         return view('cabana.index')->with('cabanas',$cabanas);
     }
 

@@ -13,7 +13,7 @@ class ComidaController extends Controller
     }
 
     public function index(){
-        $comidas = Comida::all();
+        $comidas = Comida::paginate(5);
         return view('comida.index')->with('comidas',$comidas);
     }
 

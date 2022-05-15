@@ -25,6 +25,9 @@
       @endforeach
     </tbody>
   </table>
+  <div class="d-flex justify-content-end">
+    {{$reservas_actividades->links()}}
+  </div>
   <a class="btn btn-success" href="/reservas/actividades/create">Crear</a>
 </div>
 <!-- Modal -->

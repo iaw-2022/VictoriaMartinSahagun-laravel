@@ -19,7 +19,7 @@ class reservasComidasController extends Controller
     }
 
     public function index(){
-        $reservas_comidas = ReservasComidas::all();
+        $reservas_comidas = ReservasComidas::paginate(5);
         $cabanas_array = [];
         $comidas_array = [];
         foreach($reservas_comidas as $reserva){

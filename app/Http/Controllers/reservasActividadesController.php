@@ -19,7 +19,7 @@ class reservasActividadesController extends Controller
     }
 
     public function index(){
-        $reservas_actividades = ReservasActividades::all();
+        $reservas_actividades = ReservasActividades::paginate(5);
         $cabanas_array = [];
         $actividades_array = [];
         foreach($reservas_actividades as $reserva){
