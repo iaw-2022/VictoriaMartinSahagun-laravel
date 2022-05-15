@@ -7,6 +7,11 @@ use App\Models\Cabana;
 
 class CabanaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('modificacion.cabanas');
+    }
+
     public function index(){
         $cabanas = Cabana::all();
         return view('cabana.index')->with('cabanas',$cabanas);

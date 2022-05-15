@@ -7,6 +7,11 @@ use App\Models\Comida;
 
 class ComidaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('modificacion.comidas');
+    }
+
     public function index(){
         $comidas = Comida::all();
         return view('comida.index')->with('comidas',$comidas);

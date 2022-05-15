@@ -8,6 +8,10 @@ use App\Models\Actividad;
 
 class ActividadController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('modificacion.actividades');
+    }
     
     public function index(){
         $actividades = Actividad::all();

@@ -12,6 +12,12 @@ use App\Models\Comida;
 
 class reservasComidasController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('modificacion.reservas');
+    }
+
     public function index(){
         $reservas_comidas = ReservasComidas::all();
         $cabanas_array = [];

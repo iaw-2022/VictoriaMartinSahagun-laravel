@@ -12,6 +12,12 @@ use App\Models\Actividad;
 
 class reservasActividadesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('modificacion.reservas');
+    }
+
     public function index(){
         $reservas_actividades = ReservasActividades::all();
         $cabanas_array = [];
