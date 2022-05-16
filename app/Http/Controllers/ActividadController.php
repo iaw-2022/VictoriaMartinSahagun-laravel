@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Actividad;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ActividadController extends Controller
 {
@@ -29,7 +30,8 @@ class ActividadController extends Controller
             'dia' => 'required',
             'descripcion' => 'required',
             'horario' => 'required',
-            'localizacion' => 'required|alpha'
+            'localizacion' => 'required|alpha',
+            'img' => 'mimes:jpg,png,jpeg'
         ]);
         
         $actividad = new Actividad();
@@ -39,8 +41,15 @@ class ActividadController extends Controller
         $actividad->descripcion = $request->get('descripcion');
         $actividad->horario = $request->get('horario');
         $actividad->localizacion = $request->get('localizacion');
-        $actividad->img = '/img/default.jpg';
         
+        if($request->hasfile('img')){
+            $result = $request->file('img')->storeOnCloudinary('img');
+            $actividad->img_id = $result->getPublicId();
+            $actividad->img = $result->getSecurePath();
+        }else{
+            $actividad->img = 'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636835/img/default_qr82e7.jpg';
+        }
+
         $actividad->save();
         
         return redirect('/actividades');
@@ -75,7 +84,8 @@ class ActividadController extends Controller
             'dia' => 'required',
             'descripcion' => 'required',
             'horario' => 'required',
-            'localizacion' => 'required|alpha'
+            'localizacion' => 'required',
+            'img' => 'mimes:jpg,png,jpeg'
         ]);
 
         $actividad = Actividad::find($id);
@@ -85,8 +95,14 @@ class ActividadController extends Controller
         $actividad->descripcion = $request->get('descripcion');
         $actividad->horario = $request->get('horario');
         $actividad->localizacion = $request->get('localizacion');
-        $actividad->img = '/img/default.jpg';
-
+        
+        if($request->hasfile('img')){
+            Cloudinary::destroy($actividad ->img_id);
+            $result = $request->file('img')->storeOnCloudinary('img');
+            $actividad->img_id = $result->getPublicId();
+            $actividad->img = $result->getSecurePath();
+        }
+        
         $actividad->save();
 
         return redirect('/actividades');
@@ -101,7 +117,7 @@ class ActividadController extends Controller
     public function destroy($id)
     {
         $actividad = Actividad::find($id);
-
+        Cloudinary::destroy($actividad ->img_id);
         $actividad->delete();
 
         return redirect('/actividades');

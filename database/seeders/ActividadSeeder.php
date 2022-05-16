@@ -22,7 +22,8 @@ class ActividadSeeder extends Seeder
                 'dia'=>'viernes',
                 'horario'=>'12:30',
                 'localizacion'=>'patio',
-                'img'=>'/img/yoga.jpg'
+                'img'=>'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636837/img/aqua_gym_zyvz6s.png',
+                'img_id'=>'img/aqua_gym_zyvz6s'
             ],
             [
                 'nombre'=>'cata de vinos',
@@ -30,7 +31,8 @@ class ActividadSeeder extends Seeder
                 'dia'=>'sabado',
                 'horario'=>'19:30',
                 'localizacion'=>'restaurant',
-                'img'=>'/img/cata_vino.jpg'
+                'img'=>'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636839/img/cata_vino_k5n4d4.jpg',
+                'img_id'=>'img/cata_vino_k5n4d4'
             ],
             [
                 'nombre'=>'aqua gym',
@@ -38,7 +40,8 @@ class ActividadSeeder extends Seeder
                 'dia'=>'domingo',
                 'horario'=>'16:00',
                 'localizacion'=>'pileta exterior',
-                'img'=>'/img/aqua_gym.png'
+                'img'=>'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636837/img/aqua_gym_zyvz6s.png',
+                'img_id'=>'img/aqua_gym_zyvz6s'
             ]
         ];
         DB::table('actividades')->insert($data);

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->time('horario', 4);
             $table->string('localizacion');
             $table->string('img');
+            $table->string('img_id');
             $table->timestamps();
         });
     }
