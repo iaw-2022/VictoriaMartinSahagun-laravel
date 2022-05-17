@@ -32,27 +32,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/cabanas">Cabañas</a>
                             </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link disabled">Cabañas</a>
-                            </li>
                         @endif
                         @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminComidas')
                             <li class="nav-item">
                                 <a class="nav-link" href="/comidas">Comidas</a>
                             </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link disabled">Comidas</a>
-                            </li>
                         @endif
                         @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminActividades')
                             <li class="nav-item">
                                 <a class="nav-link" href="/actividades">Actividades</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link disabled">Actividades</a>
                             </li>
                         @endif
                         @if(Auth::user()->rol == 'admin')
@@ -62,10 +50,6 @@
                                     <a class="dropdown-item" href="/reservas/comidas">Comidas</a>
                                     <a class="dropdown-item" href="/reservas/actividades">Actividades</a>
                                 </div>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link dropdown-toggle disabled" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
                             </li>
                         @endif
                     </ul>

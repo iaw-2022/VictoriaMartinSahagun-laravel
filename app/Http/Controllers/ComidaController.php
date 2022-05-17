@@ -44,6 +44,7 @@ class ComidaController extends Controller
             $comida->img = $result->getSecurePath();
         }else{
             $comida->img = 'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636835/img/default_qr82e7.jpg';
+            $comida->img_id = 'img/default_qr82e7';
         }
         
         $comida->save();
@@ -92,7 +93,7 @@ class ComidaController extends Controller
         $comida->tipo = $request->get('tipo');
         
         if($request->hasfile('img')){
-            Cloudinary::destroy($actividad ->img_id);
+            Cloudinary::destroy($comida->img_id);
             $result = $request->file('img')->storeOnCloudinary('img');
             $comida->img_id = $result->getPublicId();
             $comida->img = $result->getSecurePath();
