@@ -13,12 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'App\Http\Controllers\welcomeController@index')->middleware(['auth']);
+
+Route::resource('/actividades', 'App\Http\Controllers\ActividadController')->middleware(['auth']);
+
+Route::resource('/comidas', 'App\Http\Controllers\ComidaController')->middleware(['auth']);
+
+Route::resource('/cabanas', 'App\Http\Controllers\CabanaController')->middleware(['auth']);
+
+Route::resource('/reservas/comidas', 'App\Http\Controllers\reservasComidasController')->middleware(['auth']);
+
+Route::resource('/reservas/actividades', 'App\Http\Controllers\reservasActividadesController')->middleware(['auth']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('home');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
