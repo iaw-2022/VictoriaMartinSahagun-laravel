@@ -15,7 +15,7 @@ class reservasActividadesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('modificacion.reservas');
+        $this->middleware('modificacion.reservas', ['except'=> ['index']]);
     }
 
     public function index(){

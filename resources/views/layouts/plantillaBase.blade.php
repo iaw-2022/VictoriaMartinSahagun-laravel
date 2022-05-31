@@ -52,6 +52,22 @@
                                 </div>
                             </li>
                         @endif
+                        @if(Auth::user()->rol == 'adminComidas')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/reservas/comidas">Comidas</a>
+                                </div>
+                            </li>
+                        @endif
+                        @if(Auth::user()->rol == 'adminActividades')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/reservas/actividades">Actividades</a>
+                                </div>
+                            </li>
+                        @endif
                     </ul>
                     <form method="POST" action="{{ route('logout') }}">
                          @csrf
