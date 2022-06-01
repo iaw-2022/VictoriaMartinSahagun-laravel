@@ -8,7 +8,9 @@
         <th scope="col">Numero cabaña</th>
         <th scope="col">Nombre comida</th>
         <th scope="col">Cantidad personas</th>
+        @if(Auth::user()->rol == 'admin')
         <th scope="col">Acciones</th>
+        @endif
       </tr>
     </thead>
     <tbody class="table-light">
@@ -17,10 +19,12 @@
         <td>{{$cabanas[$reserva->cabana_id]}}</td>
         <td>{{$comidas[$reserva->comida_id]}}</td>
         <td>{{$reserva->cantidad_personas}}</td>
+        @if(Auth::user()->rol == 'admin')
         <td>
           <a class="btn btn-info btn-sm" href="/reservas/comidas/{{$reserva->id}}/edit">Editar</a>
           <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$reserva->id}}">Eliminar</button>
         </td>
+        @endif
       </tr>
       @endforeach
     </tbody>
@@ -28,7 +32,9 @@
   <div class="d-flex justify-content-end">
     {{$reservas_comidas->links()}}
   </div>
+  @if(Auth::user()->rol == 'admin')
   <a class="btn btn-success" href="/reservas/comidas/create">Crear</a>
+  @endif
 </div>
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
