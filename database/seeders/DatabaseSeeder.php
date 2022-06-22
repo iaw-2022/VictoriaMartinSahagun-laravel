@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ComidaSeeder::class);
         $this->call(ReservasActividadesSeeder::class);
         $this->call(ReservasComidasSeeder::class);
+        $this->call(HuespedesSeeder::class);
+        $this->call(HospedadosSeeder::class);
     }
 }

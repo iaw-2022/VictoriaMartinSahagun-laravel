@@ -28,22 +28,52 @@
                 </button>
                 <div class="collapse navbar-collapse"  id="toggleMobileMenu">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/cabanas">Cabañas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/comidas">Comidas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/actividades">Actividades</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/reservas/comidas">Comidas</a>
-                                <a class="dropdown-item" href="/reservas/actividades">Actividades</a>
-                            </div>
-                        </li>
+                        @if (Auth::user()->rol == 'admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="/cabanas">Cabañas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/huespedes">Huespedes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hospedados">Hospedados</a>
+                            </li>
+                        @endif
+                        @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminComidas')
+                            <li class="nav-item">
+                                <a class="nav-link" href="/comidas">Comidas</a>
+                            </li>
+                        @endif
+                        @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminActividades')
+                            <li class="nav-item">
+                                <a class="nav-link" href="/actividades">Actividades</a>
+                            </li>
+                        @endif
+                        @if(Auth::user()->rol == 'admin')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/reservas/comidas">Comidas</a>
+                                    <a class="dropdown-item" href="/reservas/actividades">Actividades</a>
+                                </div>
+                            </li>
+                        @endif
+                        @if(Auth::user()->rol == 'adminComidas')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/reservas/comidas">Comidas</a>
+                                </div>
+                            </li>
+                        @endif
+                        @if(Auth::user()->rol == 'adminActividades')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reservas</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/reservas/actividades">Actividades</a>
+                                </div>
+                            </li>
+                        @endif
                     </ul>
                     <form method="POST" action="{{ route('logout') }}">
                          @csrf
