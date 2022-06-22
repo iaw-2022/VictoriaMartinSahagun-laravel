@@ -17,11 +17,21 @@
     <div class="content text-center">
         <div><img src="/img/logo.png" alt="logo" id="logo" style="max-width: 400px;"></div>
         <div>
+          @if(Auth::user()->rol == 'admin')
             <a type="button" class="btn btn-primary" href="/cabanas">Cabañas</a>
+          @endif
+          @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminComidas')
             <a type="button" class="btn btn-primary" href="/comidas">Comidas</a>
+          @endif
+          @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminActividades')
             <a type="button" class="btn btn-primary" href="/actividades">Actividades</a>
+          @endif
+          @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminComidas')
             <a type="button" class="btn btn-primary" href="/reservas/comidas">Reservas comidas</a>
+          @endif
+          @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminActividades')
             <a type="button" class="btn btn-primary" href="/reservas/actividades">Reservas actividades</a>
+          @endif
         </div>
         <div class="mt-5">
           <form method="POST" action="{{ route('logout') }}">

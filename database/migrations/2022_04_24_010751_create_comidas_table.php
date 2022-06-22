@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('dia');
             $table->string('tipo');
             $table->string('img');
+            $table->string('img_id');
             $table->timestamps();
         });
     }

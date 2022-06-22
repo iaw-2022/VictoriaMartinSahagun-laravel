@@ -11,7 +11,7 @@
 @endif
 
 <div class="container-md mt-5">
-    <form action="/actividades/{{$actividad->id}}" method="POST">
+    <form action="/actividades/{{$actividad->id}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="form-group">
@@ -41,10 +41,14 @@
       <div class="form-group">
         <label for="localizacion" class="form-label mt-4">Localizacion</label>
         <input type="text" id="localizacion" name="localizacion" class="form-control" value="{{$actividad->localizacion}}" tabindex="5">
-      
-        <div class="mt-4">
-        <button type="submit" class="btn btn-outline-primary" tabindex="6">Guardar</button>
-        <a class="btn btn-outline-danger" href="/actividades" tabindex="7">Cancelar</a>
+      </div>
+      <div class="form-group">
+        <label for="img" class="form-label mt-4">Imagen</label>
+        <input type="file" id="img" name="img" class="form-control" tabindex="6">
+      </div>
+      <div class="mt-4">
+        <button type="submit" class="btn btn-outline-primary" tabindex="7">Guardar</button>
+        <a class="btn btn-outline-danger" href="/actividades" tabindex="8">Cancelar</a>
       </div>
     </form>
 </div>
