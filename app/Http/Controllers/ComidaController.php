@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comida;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ComidaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('modificacion.comidas');
+    }
+
     public function index(){
-        $comidas = Comida::all();
+        $comidas = Comida::paginate(5);
         return view('comida.index')->with('comidas',$comidas);
     }
 
@@ -22,6 +28,7 @@ class ComidaController extends Controller
             'dia' => 'required',
             'descripcion' => 'required',
             'tipo' => 'required',
+            'img' => 'mimes:jpg,png,jpeg'
         ]);
         
         $comida = new Comida();
@@ -30,8 +37,16 @@ class ComidaController extends Controller
         $comida->descripcion = $request->get('descripcion');
         $comida->dia = $request->get('dia');
         $comida->tipo = $request->get('tipo');
-        $comida->img = '/img/default.jpg';
-
+        
+        if($request->hasfile('img')){
+            $result = $request->file('img')->storeOnCloudinary('img');
+            $comida->img_id = $result->getPublicId();
+            $comida->img = $result->getSecurePath();
+        }else{
+            $comida->img = 'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636835/img/default_qr82e7.jpg';
+            $comida->img_id = 'img/default_qr82e7';
+        }
+        
         $comida->save();
 
         return redirect('/comidas');
@@ -67,6 +82,7 @@ class ComidaController extends Controller
             'dia' => 'required',
             'descripcion' => 'required',
             'tipo' => 'required',
+            'img' => 'mimes:jpg,png,jpeg'
         ]);
 
         $comida = Comida::find($id);
@@ -75,7 +91,13 @@ class ComidaController extends Controller
         $comida->descripcion = $request->get('descripcion');
         $comida->dia = $request->get('dia');
         $comida->tipo = $request->get('tipo');
-        $comida->img = '/img/default.jpg';
+        
+        if($request->hasfile('img')){
+            Cloudinary::destroy($comida->img_id);
+            $result = $request->file('img')->storeOnCloudinary('img');
+            $comida->img_id = $result->getPublicId();
+            $comida->img = $result->getSecurePath();
+        }
 
         $comida->save();
 
@@ -91,7 +113,7 @@ class ComidaController extends Controller
     public function destroy($id)
     {
         $comida = Comida::find($id);
-
+        Cloudinary::destroy($comida->img_id);
         $comida->delete();
 
         return redirect('/comidas');

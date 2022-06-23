@@ -11,7 +11,7 @@
 @endif
 
 <div class="container-md">
-    <form action="/comidas/{{$comida->id}}" method="POST">
+    <form action="/comidas/{{$comida->id}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="form-group">
@@ -41,10 +41,13 @@
             <option value="cena" {{($comida->tipo == 'cena') ? "selected" : ""}}>Cena</option>
         </select>
       </div>
-    
+      <div class="form-group">
+        <label for="img" class="form-label mt-4">Imagen</label>
+        <input type="file" id="img" name="img" class="form-control" tabindex="5">
+      </div>
       <div class="mt-4">
-        <button type="submit" class="btn btn-outline-primary">Guardar</button>
-        <a class="btn btn-outline-danger" href="/comidas">Cancelar</a>
+        <button type="submit" class="btn btn-outline-primary" tabindex="6">Guardar</button>
+        <a class="btn btn-outline-danger" href="/comidas" tabindex="7">Cancelar</a>
       </div>
     </form>
 </div>

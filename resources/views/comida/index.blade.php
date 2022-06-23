@@ -29,6 +29,9 @@
       @endforeach
     </tbody>
   </table>
+  <div class="d-flex justify-content-end">
+    {{$comidas->links()}}
+  </div>
   <a class="btn btn-success" href="/comidas/create">Crear</a>
 </div>
 <!-- Modal -->

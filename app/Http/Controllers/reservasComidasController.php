@@ -12,8 +12,14 @@ use App\Models\Comida;
 
 class reservasComidasController extends Controller
 {
+
+    public function __construct()
+    {
+       $this->middleware('modificacion.reservas', ['except'=> ['index']]);
+    }
+
     public function index(){
-        $reservas_comidas = ReservasComidas::all();
+        $reservas_comidas = ReservasComidas::paginate(5);
         $cabanas_array = [];
         $comidas_array = [];
         foreach($reservas_comidas as $reserva){

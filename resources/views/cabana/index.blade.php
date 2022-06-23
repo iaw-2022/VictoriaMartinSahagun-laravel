@@ -23,6 +23,9 @@
       @endforeach
     </tbody>
   </table>
+  <div class="d-flex justify-content-end">
+    {{$cabanas->links()}}
+  </div>
   <a class="btn btn-success" href="/cabanas/create">Crear</a>
 </div>
 <!-- Modal -->
