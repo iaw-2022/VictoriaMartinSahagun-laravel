@@ -18,15 +18,12 @@ class HuespedesSeeder extends Seeder
     {
         $data = [
             [ 
-                'nombre'=>'Primer Huesped',
                 'email'=>'primerHuesped@hotmail.com'
             ],
             [ 
-                'nombre'=>'Segundo Huesped',
                 'email'=>'segundoHuesped@hotmail.com'
             ],
             [ 
-                'nombre'=>'Tercer Huesped',
                 'email'=>'tercerHuesped@hotmail.com'
             ]
         ];

@@ -19,7 +19,6 @@
         <div>
           @if(Auth::user()->rol == 'admin')
             <a type="button" class="btn btn-primary" href="/cabanas">Cabañas</a>
-            <a type="button" class="btn btn-primary" href="/huespedes">Huespedes</a>
             <a type="button" class="btn btn-primary" href="/hospedados">Hospedados</a>
           @endif
           @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminComidas')

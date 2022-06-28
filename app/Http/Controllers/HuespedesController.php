@@ -20,14 +20,12 @@ class HuespedesController extends Controller
     public function store(Request $request){
         $request->validate([
             'id_huesped' => 'required|int',
-            'numero' => 'required|int',
             'email' => 'required'
         ]);
 
         $huesped = new Huespedes();
 
         $huesped->id_huesped = $request->get('id_huesped');
-        $huesped->nombre = $request->get('numero');
         $huesped->email = $request->get('email');
 
         $huesped->save();
@@ -61,14 +59,12 @@ class HuespedesController extends Controller
     {
         $request->validate([
             'id_huesped' => 'required|int',
-            'numero' => 'required|int',
             'email' => 'required'
         ]);
 
         $huesped = Huespedes::find($id);
 
         $huesped->id_huesped = $request->get('id_huesped');
-        $huesped->nombre = $request->get('numero');
         $huesped->email = $request->get('email');
 
         $huesped->save();

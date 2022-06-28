@@ -33,9 +33,6 @@
                                 <a class="nav-link" href="/cabanas">Cabañas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/huespedes">Huespedes</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="/hospedados">Hospedados</a>
                             </li>
                         @endif
