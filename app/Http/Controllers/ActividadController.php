@@ -47,8 +47,8 @@ class ActividadController extends Controller
             $actividad->img_id = $result->getPublicId();
             $actividad->img = $result->getSecurePath();
         }else{
-            $actividad->img = 'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636835/img/default_qr82e7.jpg';
-            $actividad->img_id = 'img/default_qr82e7';
+            $actividad->img = 'https://res.cloudinary.com/proyectobalcon/image/upload/v1656510823/img/default_l1jrdn.jpg';
+            $actividad->img_id = 'img/default_l1jrdn';
         }
 
         $actividad->save();
