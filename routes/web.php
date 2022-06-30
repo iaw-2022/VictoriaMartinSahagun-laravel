@@ -26,6 +26,10 @@ Route::resource('/reservas/comidas', 'App\Http\Controllers\reservasComidasContro
 
 Route::resource('/reservas/actividades', 'App\Http\Controllers\reservasActividadesController')->middleware(['auth']);
 
+Route::resource('/huespedes', 'App\Http\Controllers\HuespedesController')->middleware(['auth']);
+
+Route::resource('/hospedados', 'App\Http\Controllers\HuespedesCabanasController')->middleware(['auth']);
+
 Route::get('/dashboard', function () {
     return view('home');
 })->middleware(['auth'])->name('dashboard');

@@ -29,16 +29,16 @@ class ComidaSeeder extends Seeder
                 'descripcion'=>'Sorrentinos de zapallo calabaza acompañados de una salsa de roquefort y nueces.',
                 'dia'=>'sabado',
                 'tipo'=>'cena',
-                'img'=>'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636836/img/sorrentinos_kdnwdy.jpg',
-                'img_id'=>'img/sorrentinos_kdnwdy'
+                'img'=>'https://res.cloudinary.com/proyectobalcon/image/upload/v1656012492/img/fyqzc0hu23qvnjsn25rd.jpg',
+                'img_id'=>'img/fyqzc0hu23qvnjsn25rd'
             ],
             [ 
                 'nombre'=>'Asado',
                 'descripcion'=>'Porcion de carne a elección (vacío, entreña, costilla) acompañado de una ensalada con vegetales de la huerta.',
                 'dia'=>'domingo',
                 'tipo'=>'almuerzo',
-                'img'=>'https://res.cloudinary.com/proyectobalcon/image/upload/v1652636836/img/asado_g6ykz3.jpg',
-                'img_id'=>'img/asado_g6ykz3'
+                'img'=>'https://res.cloudinary.com/proyectobalcon/image/upload/v1655334005/img/asado_kyp0kp.webp',
+                'img_id'=>'img/asado_kyp0kp'
             ]
         ]
         ;

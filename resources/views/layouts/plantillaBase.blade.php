@@ -32,6 +32,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/cabanas">Cabañas</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hospedados">Hospedados</a>
+                            </li>
                         @endif
                         @if(Auth::user()->rol == 'admin' || Auth::user()->rol == 'adminComidas')
                             <li class="nav-item">
